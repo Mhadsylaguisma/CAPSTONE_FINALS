@@ -6,6 +6,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
+data = {
     'Year': list(range(2011, 2025)),
     'Att': [502, 552, 317, 520, 624, 432, 505, 597, 378, 526, 531, 587, 499, 474],
     'Cmp': [343, 371, 203, 341, 402, 291, 341, 372, 281, 372, 366, 382, 319, 316],
@@ -32,7 +33,6 @@ print("Sum of Completions:", np.sum(df['Cmp']))
 
 corr, pval = stats.pearsonr(df['TD'], df['Rating'])
 print(f"\nSciPy Correlation between TD and Rating: r = {corr:.2f}, p = {pval:.4f}")
-
 
 X = sm.add_constant(df['TD'])
 model = sm.OLS(df['Rating'], X).fit()
